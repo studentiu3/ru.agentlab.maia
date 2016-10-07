@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.semanticweb.owlapi.model.OWLAxiom;
 
+<<<<<<< develop
 import ru.agentlab.maia.agent.IGoal;
 import ru.agentlab.maia.agent.IGoalBase;
 import ru.agentlab.maia.agent.IMessage;
@@ -41,6 +42,41 @@ public class AbstractResponder {
 
 	protected void addGoal(Object event) {
 		goalBase.add(event);
+=======
+import ru.agentlab.maia.agent.IMessage;
+import ru.agentlab.maia.agent.IRole;
+import ru.agentlab.maia.container.IContainer;
+import ru.agentlab.maia.goal.IGoal;
+import ru.agentlab.maia.goal.IGoalBase;
+import ru.agentlab.maia.message.IMessageDeliveryService;
+
+public class AbstractResponder {
+
+	protected final UUID conversationId = UUID.randomUUID();
+
+	@Inject
+	protected IMessageDeliveryService messaging;
+
+	@Inject
+	protected IGoalBase goalBase;
+
+	@Inject
+	protected Queue<Object> eventQueue;
+
+	@Inject
+	protected IRole role;
+
+	@Inject
+	protected ScheduledExecutorService scheduler;
+
+	@Inject
+	protected IContainer container;
+
+	protected IAgentFilter filter = new AllowAllAgentFilter();
+
+	protected void addGoal(Object event) {
+		goalBase.addGoal(event);
+>>>>>>> e9ddd18 Implement FIPA protocols
 	}
 
 	protected void addEvent(Object event) {

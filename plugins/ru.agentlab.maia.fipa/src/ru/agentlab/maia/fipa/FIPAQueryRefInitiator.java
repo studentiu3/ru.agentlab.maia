@@ -23,7 +23,11 @@ import javax.annotation.PreDestroy;
 import org.semanticweb.owlapi.model.OWLAxiom;
 
 import ru.agentlab.maia.agent.IMessage;
+<<<<<<< develop
 import ru.agentlab.maia.agent.annotation.trigger.AddedExternalEvent;
+=======
+import ru.agentlab.maia.agent.annotation.OnEvent;
+>>>>>>> e9ddd18 Implement FIPA protocols
 import ru.agentlab.maia.agent.event.RoleRemovedEvent;
 import ru.agentlab.maia.message.annotation.OnMessageReceived;
 import ru.agentlab.maia.message.impl.AclMessage;
@@ -40,7 +44,11 @@ public class FIPAQueryRefInitiator extends AbstractInitiator {
 		state = State.REQUEST_SENT;
 	}
 
+<<<<<<< develop
 	@AddedExternalEvent(TimerEvent.class)
+=======
+	@OnEvent(TimerEvent.class)
+>>>>>>> e9ddd18 Implement FIPA protocols
 	public void onDeadline(TimerEvent event) {
 		if (notMyEvent(event)) {
 			return;

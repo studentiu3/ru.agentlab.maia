@@ -15,6 +15,7 @@ import javax.annotation.PreDestroy;
 import org.semanticweb.owlapi.model.OWLAxiom;
 
 import ru.agentlab.maia.agent.IMessage;
+<<<<<<< develop
 import ru.agentlab.maia.agent.annotation.trigger.AddedExternalEvent;
 import ru.agentlab.maia.agent.event.RoleRemovedEvent;
 import ru.agentlab.maia.message.annotation.OnMessageReceived;
@@ -40,6 +41,33 @@ public class FIPARequestInitiator extends AbstractInitiator {
 		if (state != State.FINISHED) {
 			addEvent(new ProtocolDeadlineEvent());
 //			addGoal(new RoleRemovedEvent(role));
+=======
+import ru.agentlab.maia.agent.annotation.OnEvent;
+import ru.agentlab.maia.agent.event.RoleRemovedEvent;
+import ru.agentlab.maia.message.annotation.OnMessageReceived;
+import ru.agentlab.maia.message.impl.AclMessage;
+import ru.agentlab.maia.time.TimerEvent;
+
+public class FIPARequestInitiator extends AbstractInitiator {
+
+	private State state = null;
+
+	@PostConstruct
+	public void onStart() {
+		send(FIPA_REQUEST, REQUEST, template);
+		startTimer();
+		state = State.REQUEST_SENT;
+	}
+
+	@OnEvent(TimerEvent.class)
+	public void onDeadline(TimerEvent event) {
+		if (notMyEvent(event)) {
+			return;
+		}
+		if (state != State.FINISHED) {
+			addEvent(new ProtocolDeadlineEvent());
+			addGoal(new RoleRemovedEvent(role));
+>>>>>>> e9ddd18 Implement FIPA protocols
 			state = State.FINISHED;
 		}
 	}

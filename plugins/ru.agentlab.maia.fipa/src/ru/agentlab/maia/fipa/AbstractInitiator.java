@@ -16,6 +16,7 @@ import javax.inject.Named;
 import org.semanticweb.owlapi.model.OWLAxiom;
 
 import ru.agentlab.maia.agent.IAgent;
+<<<<<<< develop
 import ru.agentlab.maia.agent.IGoalBase;
 import ru.agentlab.maia.agent.IMessage;
 import ru.agentlab.maia.agent.IRole;
@@ -82,6 +83,74 @@ public class AbstractInitiator {
 
 	protected void addGoal(Object event) {
 		goalBase.add(event);
+=======
+import ru.agentlab.maia.agent.IMessage;
+import ru.agentlab.maia.agent.IRole;
+import ru.agentlab.maia.agent.annotation.Optional;
+import ru.agentlab.maia.container.IContainer;
+import ru.agentlab.maia.goal.IGoalBase;
+import ru.agentlab.maia.message.IMessageDeliveryService;
+import ru.agentlab.maia.message.impl.AclMessage;
+import ru.agentlab.maia.time.TimerEvent;
+
+public class AbstractInitiator {
+
+	protected final UUID conversationId = UUID.randomUUID();
+
+	@Inject
+	protected IMessageDeliveryService messaging;
+
+	@Inject
+	protected IAgent agent;
+
+	@Inject
+	protected IGoalBase goalBase;
+
+	@Inject
+	protected Queue<Object> eventQueue;
+
+	@Inject
+	protected IRole role;
+
+	@Inject
+	protected ScheduledExecutorService scheduler;
+
+	@Inject
+	protected IContainer container;
+
+	@Inject
+	@Named("receivers")
+	protected Set<UUID> targetAgents;
+
+	@Inject
+	@Optional
+	@Named("delay")
+	protected long delay = 1000;
+
+	@Inject
+	@Optional
+	@Named("unit")
+	protected TimeUnit unit = TimeUnit.MILLISECONDS;
+
+	@Inject
+	@Optional
+	@Named("language")
+	protected String language = null;
+
+	@Inject
+	@Optional
+	@Named("ontology")
+	protected String ontology = null;
+
+	@Inject
+	@Named("content")
+	protected String template;
+
+	private ScheduledFuture<?> future;
+
+	protected void addGoal(Object event) {
+		goalBase.addGoal(event);
+>>>>>>> e9ddd18 Implement FIPA protocols
 	}
 
 	protected void addEvent(Object event) {
