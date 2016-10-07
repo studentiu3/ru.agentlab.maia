@@ -14,7 +14,13 @@ Require-Bundle: ru.agentlab.maia.message,
  com.google.guava,
  ru.agentlab.maia.agent.annotation,
  ru.agentlab.maia.message.impl,
+<<<<<<< develop
  de.derivo.sparqldlapi,
+=======
+ ru.agentlab.maia.goal,
+ de.derivo.sparqldlapi,
+ ru.agentlab.maia.goal.annotation,
+>>>>>>> e9ddd18 Implement FIPA protocols
  ru.agentlab.maia.time,
  ru.agentlab.maia.time.annotation
 Export-Package: ru.agentlab.maia.fipa
