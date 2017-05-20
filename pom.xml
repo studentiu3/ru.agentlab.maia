@@ -6,7 +6,7 @@
 	<artifactId>ru.agentlab.maia.parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<issueManagement>
 		<url>https://github.com/agentlab/ru.agentlab.maia/issues</url>
 	</issueManagement>
@@ -37,7 +37,7 @@
 		<module>releng/ru.agentlab.maia.repository</module>
 		<module>releng/ru.agentlab.maia.releng</module>
 	</modules>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -49,7 +49,7 @@
 				<artifactId>tycho-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -189,7 +189,7 @@
 						</execution>
 					</executions>
 				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
