@@ -1,3 +1,9 @@
 first line
+<<<<<<< HEAD
 second line
 third line
+=======
+modified line
+third line
+fourth line
+>>>>>>> refs/heads/branch2
